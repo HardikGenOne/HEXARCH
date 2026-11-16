@@ -67,6 +67,11 @@ module tb_memory_compare;
 
 
                 // ---- Mode 7 (Ajeesh): add the new data-pattern case here. ----
+                7: begin
+                    image[0]=8'h15; image[1]=8'h26; image[2]=8'h16; image[3]=8'h27; image[4]=8'hf0;
+                    seed[5]=8'h3c;
+                    expected[5]=8'h3c; expected[6]=8'h3c; expected[7]=8'h3c;
+                end
 
 
                 // ---- Mode 8 (Vaibhav): add a case here if your checks need one. ----
@@ -207,6 +212,7 @@ module tb_memory_compare;
 
 
         // ---- Ajeesh: run mode 7 here. ----
+        prepare(7); run_checked("data_copy_chain",6,10,4,8'h3c,0,0);
 
 
         // ---- Vaibhav: add the shared physical-address checks here. ----
