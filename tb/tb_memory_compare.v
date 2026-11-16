@@ -64,6 +64,7 @@ module tb_memory_compare;
                     expected[0]=7; expected[1]=7; expected[2]=7; expected[3]=7;
                 end
                 // ---- Mode 6 (Akshat): add the full 16-byte program case here. ----
+                6: begin for (i = 0; i < 15; i = i + 1) image[i] = 8'h00; end
 
 
                 // ---- Mode 7 (Ajeesh): add the new data-pattern case here. ----
@@ -204,6 +205,7 @@ module tb_memory_compare;
         run_checked("reset_and_restart",8,14,6,7,0,0);
 
         // ---- Akshat: run mode 6 here, e.g. prepare(6); run_checked(...); ----
+        prepare(6); run_checked("full_program",17,17,0,0,0,0);
 
 
         // ---- Ajeesh: run mode 7 here. ----
